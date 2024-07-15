@@ -1,4 +1,4 @@
-//var watermark_img;
+var watermark_img;
 var watermark2_img;
 var canvas;
 var canvasWidth;
@@ -16,20 +16,11 @@ Office.onReady((info) => {
         console.log("This add-in is not designed for the current host:", info.host);
     }
 });
-/*
-function preload() {
-    console.log("'preLoad();´ Started");
-    // Load the image you want to edit
-   // watermark_img = "https://localhost:3000/assets/watermark.png";
- //   watermark2_img = "https://localhost:3000/assets/icon-80.png";
-    //   img = loadImage("https://localhost:3000/assets/watermark.png");
-  
-    watermark2_img = loadImage("https://localhost:3000/assets/icon-80.png");
-    console.log("'preLoad();´ Finished");
-}
+
 
 function setup() {
     console.log("'setup();' run");
+    
     canvasWidth = 526;
     canvasHeight = 785;
     canvas = createCanvas(canvasWidth, canvasHeight);
@@ -38,12 +29,19 @@ function setup() {
     appContainer.appendChild(canvas.elt);
     canvas.elt.style.display = "block";
     canvas.elt.style.margin = "auto";
-}*/
-function fakeSetupPreload() {
-    img = loadImage("https://localhost:3000/assets/watermark.png");
+}
+function Preload() {
+    console.log("'preLoad();' run");
+
+    // Load the image you want to edit
+    watermark_img = "https://localhost:3000/assets/watermark.png";
+    watermark2_img = "https://localhost:3000/assets/icon-80.png";
+
+    watermark_img= loadImage("https://localhost:3000/assets/watermark.png");
     watermark2_img = loadImage("https://localhost:3000/assets/icon-80.png");
 
-    console.log("'setup();' run");
+   
+   
     canvasWidth = 526;
     canvasHeight = 785;
     canvas = createCanvas(canvasWidth, canvasHeight);
@@ -52,9 +50,16 @@ function fakeSetupPreload() {
     appContainer.appendChild(canvas.elt);
     canvas.elt.style.display = "block";
     canvas.elt.style.margin = "auto";
-    WriteText();
+  
 }
 function WriteText() {
+    console.log("<<<<<Force SetUp, Force PreLoad>>>>>");
+    setup();
+    Preload();
+
+
+
+
     console.log("'WriteText();' run");
     Office.context.mailbox.item.body.getAsync(Office.CoercionType.Text, (result) => {
         if (result.status === Office.AsyncResultStatus.Succeeded) {
@@ -149,7 +154,7 @@ function initializeAddIn() {
         console.log("Found the 'helloButton' element");
         helloButton.onclick = () => {
             console.log("'helloButton' clicked");
-            fakeSetupPreload();
+            WriteText();
         };
     } else {
         console.error("Could not find the 'helloButton' element");
