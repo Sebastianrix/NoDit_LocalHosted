@@ -4,8 +4,8 @@
 		<Version>1.0.0.0</Version>
 	<ProviderName>SeMic, 2023</ProviderName>
 	<DefaultLocale>da-DK</DefaultLocale>
-	<DisplayName DefaultValue="Server version; NoDit.0.1"/>
-	<Description DefaultValue="Server version : Denne version kører IKKE local host NoDit er et plugin program til Outlook. NoDiT gør at din mail bliver lavet en bilede fil og indsat i mailen inden den bliver sendt."/>
+	<DisplayName DefaultValue="Local version; NoDit.0.1"/>
+	<Description DefaultValue="Local version : Denne version kører local host NoDit er et plugin program til Outlook. NoDiT gør at din mail bliver lavet en bilede fil og indsat i mailen inden den bliver sendt."/>
 	<IconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
 	<HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-128.png"/>
 
